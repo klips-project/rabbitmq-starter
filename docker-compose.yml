@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  rabbit:
+    image: rabbitmq:3-management
+    ports: 
+      - 15672:15672
+      - 5672:5672
+
+  publisher:
+    build: ./publisher
+    command: ["./wait-for.sh", "rabbit:5672", "--", "node", "index.js"]
+
+  publisher_2:
+    build: ./publisher
+    command: ["./wait-for.sh", "rabbit:5672", "--", "node", "index.js"]
+
+  consumer:
+    build: ./consumer
+    command: ["./wait-for.sh", "rabbit:5672", "--", "node", "index.js"]
+
+  consumer_2:
+    build: ./consumer
+    command: ["./wait-for.sh", "rabbit:5672", "--", "node", "index.js"]
+
+  consumer_3:
+    build: ./consumer
+    command: ["./wait-for.sh", "rabbit:5672", "--", "node", "index.js"]
