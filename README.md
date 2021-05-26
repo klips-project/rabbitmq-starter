@@ -1,5 +1,8 @@
 # RabbitMQ - example setup
 
+This repository contains basic examples of RabbitMQ functionality. See the
+`README` files in the respective directories.
+
 ## Quickstart
 
 Run [RabbitMQ](https://www.rabbitmq.com):
@@ -9,14 +12,6 @@ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-manag
 Management UI is on [http://localhost:15672](http://localhost:15672).
 - User: `guest`
 - PW: `guest`
-
-## Docker Compose Example
-
-This example contains several publisher and consumer clients that exchange random messages every few seconds. The transfer is purely done via RabbitMQ interface. The code for the clients is based on the [publish/subscribe tutorial ](https://www.rabbitmq.com/tutorials/tutorial-three-javascript.html) on the RabbitMQ website.
-
-```shell
-docker-compose up
-```
 
 ## Notes
 

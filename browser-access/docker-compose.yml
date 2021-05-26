@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  rabbit:
+    build: ./rabbit-mqtt
+    ports:
+      - 15672:15672
+      - 5672:5672
+      - 15675:15675
+
+  website:
+    build: ./website
+    ports:
+      - 8080:80
+
+  publisher:
+    build: ./publisher
+    command: ["./wait-for.sh", "rabbit:5672", "--", "node", "index.js"]
