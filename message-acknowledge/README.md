@@ -1,6 +1,6 @@
 # (Non)-Acknowledges Messages
 
-This examples shows how to acknowledge messages or to reject them a.k.a. as `nack`s them.
+This examples shows how to acknowledge messages or to reject them a.k.a. `nack` them.
 
 Start a local RabbitMQ via:
 
