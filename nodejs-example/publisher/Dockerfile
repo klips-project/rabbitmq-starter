@@ -1,4 +1,4 @@
-FROM node:14-alpine3.12
+FROM node:16-alpine
 LABEL maintainer="jakob@meggsimum.de"
 
 COPY /package.json /opt/package.json
