@@ -86,14 +86,14 @@
 
         var print_first = pipe('#first', function(data) {
             message = new Paho.MQTT.Message(data);
-            message.destinationName = "test";
+            message.destinationName = "my-binding";
             debug("SEND ON " + message.destinationName + " PAYLOAD " + data);
             client.send(message);
         });
 
         var debug = pipe('#second');
 
-        var wsbroker = location.hostname;  //mqtt websocket enabled broker
+        var wsbroker = location.hostname;  // mqtt websocket enabled broker
         var wsport = 15675; // port for above
 
         var client = new Paho.MQTT.Client(wsbroker, wsport, "/ws",
@@ -113,7 +113,7 @@
             keepAliveInterval: 30,
             onSuccess: function () {
                 debug("CONNECTION SUCCESS");
-                client.subscribe("test", {qos: 1});
+                client.subscribe("my-binding", {qos: 1});
             },
             onFailure: function (message) {
                 debug("CONNECTION FAILURE - " + message.errorMessage);

@@ -37,7 +37,7 @@ amqp.connect('amqp://rabbit', function(error0, connection) {
         let msg = 'msg-' + makeid(7);
         channel.publish(
           exchange,
-          'test', // <-- routing/binding
+          'my-binding', // <-- routing/binding
           Buffer.from(msg)
           );
         console.log(" [x] Sent %s", msg);
